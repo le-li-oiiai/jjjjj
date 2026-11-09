@@ -2,6 +2,7 @@
     padding: 0px;
     margin: 0px;
 }
+/* 导航栏区域 */
 .nav {
     width: 100%;
     height: 60px;
@@ -11,6 +12,8 @@ nav {
     width: 1480px;
     height: 60px;
     margin: 0 auto;
+    /* 相对定位 */
+    position: relative;
 }
 .nav-left {
     width: 600px;
@@ -51,7 +54,7 @@ a:hover {
 /* 搜索区域 */
 .search {
     width: 1480px;
-    height: 400px;
+    height: 350px;
     /* background-color: red; */
     /* border: 1px solid green; */
     margin: 0 auto;
@@ -61,6 +64,7 @@ a:hover {
     width: 270px;
     margin: 0 auto;
 }
+/* 搜索答案 */
 .question {
     width: 800px;
     height: 97px;
@@ -88,4 +92,235 @@ a:hover {
     font-size: 16px;
     outline: none;
     color: aliceblue;
+}
+/* 文心助手 */
+.wenxin {
+    width: 402px;
+    height: 38px;
+    border: 1px solid rgb(245, 246, 250);
+    background-color: rgb(245, 246, 250);
+    margin: 0 auto;
+    margin-top: 30px;
+    border-radius: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.wenxin img {
+    width: 60px;
+    margin-right: 10px;
+}
+.wenxin a {
+    line-height: 20px;
+}
+.wenxin:hover {
+    background-color: rgb(240, 241, 243);
+}
+/* 百度热搜 */
+.hotsearch {
+    width: 800px; /* 宽度与搜索框对齐 */
+    margin: 20px auto 0 auto;
+    /* 去掉红色边框，还原清爽界面 */
+    /* border: 1px solid red; */
+}
+/* 顶部标签区域 */
+.hotsearchtab {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 10px;
+}
+.hotsearchtab .tab-left {
+    display: flex;
+    align-items: center;
+}
+.hotsearchtab .tab-left a {
+    margin-right: 20px;
+    font-size: 15px;
+    color: #333;
+}
+.hotsearchtab .tab-left a.active {
+    font-weight: bold;
+    color: #000;
+    position: relative;
+}
+/* 百度热搜下方的红线 */
+.hotsearchtab .tab-left a.active::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -8px;
+    transform: translateX(-50%);
+    width: 24px;
+    height: 3px;
+    background-color: #ff3333;
+    border-radius: 2px;
+}
+.hotsearchtab .tab-left a .arrow {
+    font-size: 12px;
+    color: #999;
+    margin-left: 2px;
+}
+.hotsearchtab .tab-right a {
+    font-size: 14px;
+    color: #999;
+}
+.hotsearchtab .tab-right a:hover {
+    color: #315efb;
+}
+/* 热搜列表（两列布局） */
+.hotsearch-list {
+    column-count: 2;     /* 分为两列 */
+    column-gap: 40px;    /* 列间距 */
+    margin-top: 15px;
+}
+.hotsearch-list li {
+    float: none; /* 清除全局 ul li 的浮动 */
+    margin: 0;
+    line-height: 38px;
+    height: 38px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+.hotsearch-list li a {
+    color: #222;
+    font-size: 16px;
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+}
+/* 标号样式 */
+.hotsearch-list .num {
+    display: inline-block;
+    width: 22px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #9195a3;
+    margin-right: 2px;
+    text-align: center;
+}
+/* 前三名标号颜色 */
+.hotsearch-list .num.n1 { color: #fe2d46; }
+.hotsearch-list .num.n2 { color: #ff6600; }
+.hotsearch-list .num.n3 { color: #faa90e; }
+
+/* 置顶图标（用红色箭头代替） */
+.hotsearch-list .icon-top {
+    color: #fe2d46;
+    font-weight: bold;
+    margin-right: 6px;
+    font-size: 16px;
+}
+/* 热度标签 */
+.hotsearch-list .hot-tag {
+    background-color: #ff4500;
+    color: #fff;
+    font-size: 12px;
+    padding: 0 3px;
+    border-radius: 3px;
+    margin-left: 5px;
+    line-height: 16px;
+    height: 16px;
+    display: inline-block;
+    vertical-align: text-bottom;
+}
+
+/* 这里就是完善首页下拉框的区域 */
+/* 覆盖原有的下拉框样式 */
+.dropdown {
+    width: 300px; /* 加宽以容纳三列 */
+    height: auto; /* 高度由内容撑开 */
+    background-color: #fff;
+    position: absolute;
+    left: 440px; /* 你可以根据实际情况微调位置 */
+    z-index: 10;
+    top: 50px;
+    border: 1px solid #eee; /* 边框颜色变浅 */
+    border-radius: 12px; /* 圆角稍微大一点，更贴合原图 */
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08); /* 添加阴影，更有立体感 */
+    padding: 20px 0 15px 0;
+    display: none;
+}
+
+/* 鼠标悬浮显示 */
+#more:hover .dropdown {
+    display: block;
+}
+
+/* --- 新增：下拉菜单内部网格布局 --- */
+.dropdown-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr); /* 3列均分 */
+    row-gap: 20px; /* 行间距 */
+    padding: 0 10px;
+}
+
+.dropdown-grid a {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    color: #333;
+    font-size: 13px;
+    line-height: normal; /* 覆盖全局的 line-height: 60px */
+}
+
+.dropdown-grid a:hover {
+    color: #315efb;
+}
+
+.dropdown-grid a span {
+    margin-top: 8px;
+}
+
+/* 模拟图标样式（如果你有真实图片，可以将 div 换成 img） */
+.icon {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+/* 分别设置图标的背景色（提取自原图近似色） */
+.icon-translate { background: #4e6ef2; }
+.icon-wenku { background: #00b873; border-radius: 10px; }
+.icon-baike { background: #4e6ef2; }
+.icon-zhidao { background: #00b873; }
+.icon-health { background: #00b873; border-radius: 10px; }
+.icon-marketing { background: #4e6ef2; }
+.icon-live { background: #ff4e7a; border-radius: 6px; }
+.icon-music { background: #ff3333; }
+.icon-academic { background: #4e6ef2; }
+
+/* --- 新增：底部查看全部按钮区域 --- */
+.dropdown-footer {
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px solid #f0f0f0; /* 顶部浅色分割线 */
+    text-align: center;
+}
+
+.dropdown-footer a {
+    color: #999;
+    font-size: 13px;
+    text-decoration: none;
+    line-height: normal;
+}
+
+.dropdown-footer a:hover {
+    color: #315efb;
+}
+
+/* 控制鼠标移动到更多区域 显示隐藏的内容 */
+#more:hover .dropdown{
+    display: block;
 }
